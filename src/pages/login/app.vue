@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1 class="t-1">主页</h1>
+    <h1 class="t-1">Login</h1>
     <p>{{ message }}</p>
   </div>
 </template>
@@ -19,5 +19,3 @@ export default {
   font-size: 22px;
 }
 </style>
-
-

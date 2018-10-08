@@ -27,7 +27,7 @@ entries.forEach((file) => {
     template: pageHtml,
     filename: `${pageName}.html`,
     // filename: `${pageName}/${pageName}.html`,
-    chunks: [`${[pageName]}`]
+    // chunks: [`${[pageName]}`]
   }
 })
 

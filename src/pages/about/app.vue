@@ -1,15 +1,15 @@
 <template>
   <div class="app">
-    <h1>主页</h1>
+    <h1>关于</h1>
     <p>{{message}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  app () {
+  data () {
     return {
-      message: 'this is index page message'
+      message: `this is about page message`
     }
   }
 }

@@ -1,1 +1,4 @@
-export const header = `<h1>我是头部</h1>`
+$(() => {
+  let activeItem = $('#header li').filter((inx, item) => document.location.href.indexOf($(item).attr('role')) >= 0)
+  $(activeItem).addClass('active').siblings().removeClass('active')
+})
