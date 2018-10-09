@@ -4,6 +4,8 @@
 
 添加 art-template 模板处理静态页内公共头脚引入。
 
+此分支采用 分级目录格式 ，打包后目录有所不同。
+
 ## 使用
 
 ```
@@ -24,7 +26,13 @@ multiple-project
 │  ├─css
 │  ├─fonts
 │  ├─img
-│  └─js
+│  ├─js
+│  └─pages
+│      ├─about
+│      ├─index
+│      │  ├─index.62b3882c.css // 私有样式表 
+│      │  └─index.html // 模板文件
+│      └─login
 ├─public // 公共资源，处理图片
 │  ├─common
 │  └─index
@@ -37,6 +45,6 @@ multiple-project
         ├─index
         │  ├─index.html // 模板文件
         │  ├─app.vue    // vue 项目文件
-        │  └─index      // 项目入口
+        │  └─main.js    // 此页面文件入口
         └─login
 ```
