@@ -60,5 +60,4 @@ module.exports = {
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
   }
-
 }
