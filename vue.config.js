@@ -28,7 +28,7 @@ entries.forEach((file) => {
   pages[pageName] = {
     entry: file,
     template: pageHtml,
-    filename: `${pageName}.html`,
+    filename: `pages/${pageName}/${pageName}.html`,
   }
 })
 
@@ -59,6 +59,10 @@ module.exports = {
       .alias
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
+  },
+  css: {
+    extract: {
+      filename: 'pages/[name]/[name].[contenthash:8].css'
+    },
   }
-
 }

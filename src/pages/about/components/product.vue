@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div>
-      <img src="/index/column-pic-3.jpg" alt="" srcset="">
+      <img src="/images/index/column-pic-3.jpg" alt="" srcset="">
       <p>她说她发送到发斯蒂芬</p>
     </div>
   </div>
