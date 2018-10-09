@@ -29,7 +29,6 @@ entries.forEach((file) => {
     entry: file,
     template: pageHtml,
     filename: `${pageName}.html`,
-    // filename: `${pageName}/${pageName}.html`, chunks: [`${[pageName]}`]
   }
 })
 
@@ -59,6 +58,7 @@ module.exports = {
       .resolve
       .alias
       .set('$art', resolve('src/art'))
+      .set('$common', resolve('src/art/common'))
   }
 
 }

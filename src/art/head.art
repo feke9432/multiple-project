@@ -1,5 +1,9 @@
-<ul class="nav nav-pills" id="header">
-  <li role="home" class="active"><a href="/">Home</a></li>
-  <li role="about"><a href="/about.html">About</a></li>
-  <li role="login"><a href="/login.html">Messages</a></li>
-</ul>
+<div>
+  <img src="/common/logo.png">
+  <ul class="nav nav-pills" id="header">
+    <li role="home" class="active"><a href="/">Home</a></li>
+    <li role="about"><a href="/about.html">About</a></li>
+    <li role="login"><a href="/login.html">Messages</a></li>
+  </ul>
+</div>
+
