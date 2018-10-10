@@ -20,7 +20,6 @@ class AgentService {
     let action = url.replace(/([a-zA-Z])\//, '$1.')
     let apiURL = host + '/Api/' + serviceName + action
     let sid = Cookies.get(this.sidKey)
-    console.log(sid)
     $.ajax({
       url: apiURL,
       type: "POST",
