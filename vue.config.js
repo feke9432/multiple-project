@@ -72,8 +72,8 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: {
     output: {
-      filename: 'asserts/[name]/js/[name].[contenthash:8].js',
-      chunkFilename: 'asserts/common/js/[name].[contenthash:8].js'
+      filename: 'asserts/[name]/js/[name].[hash:8].js',
+      chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
       $: "jquery",
@@ -123,8 +123,8 @@ module.exports = {
   },
   css: {
     extract: {
-      filename: 'asserts/[name]/css/[name].[contenthash:8].css',
-      chunkFilename: 'asserts/common/css/[name].[contenthash:8].css'
+      filename: 'asserts/[name]/css/[name].[hash:8].css',
+      chunkFilename: 'asserts/common/css/[name].[hash:8].css'
     }
   }
 }
