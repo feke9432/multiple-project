@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import './head'
-import './foot'
+import './header/head'
+import './header/head.scss'
+import './footer/foot'

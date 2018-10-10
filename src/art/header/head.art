@@ -1,0 +1,8 @@
+<div>
+  <img src="/asserts/common/img/logo.png">
+  <ul class="nav nav-pills" id="header">
+    <li role="home" class="active"><a href="/pages/index/">Home</a></li>
+    <li role="about"><a href="/pages/about/about.html">About</a></li>
+    <li role="login"><a href="/pages/login/login.html">Messages</a></li>
+  </ul>
+</div>
