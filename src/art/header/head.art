@@ -6,5 +6,3 @@
     <li role="login"><a href="/pages/login/login.html">Messages</a></li>
   </ul>
 </div>
-
-<p> ss<%= BASE_URL %></p>

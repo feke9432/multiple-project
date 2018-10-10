@@ -10,7 +10,7 @@ function getEntres() {
     pages = {}
   try {
     // 获取相关入口
-    entries = glob('src/pages/*/main.js', {
+    entries = glob('src/pages/*/main.ts', {
       sync: true
     })
   } catch (err) {
@@ -74,7 +74,9 @@ module.exports = {
       .alias
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
-    config.module.rule('fonts')
+    config
+      .module
+      .rule('fonts')
       .test(/\.(woff2?|eot|ttf|otf)(\?.*)?$/i)
       .use('url-loader')
       .loader('url-loader')
@@ -88,13 +90,22 @@ module.exports = {
         }
         return options
       })
-    config.module.rule('svg')
+    config
+      .module
+      .rule('svg')
       .test(/\.(svg)(\?.*)?$/)
       .use('file-loader')
       .loader('file-loader')
       .tap(options => {
         options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
         return options
+      })
+    config
+      .plugin('define')
+      .tap(args => {
+        args[0]['process.env'].BASE_URL = process.env.NODE_ENV === 'production' ?
+          '"https://test-api-gateway.51mydao.com"' : '"https://test-api-gateway.51mydao.com"'
+        return args
       })
   },
   css: {
