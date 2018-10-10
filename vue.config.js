@@ -10,7 +10,7 @@ function getEntres() {
     pages = {}
   try {
     // 获取相关入口
-    entries = glob('src/pages/*/main.js', {
+    entries = glob('src/pages/*/main.ts', {
       sync: true
     })
   } catch (err) {
@@ -55,9 +55,9 @@ module.exports = {
       chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "windows.jQuery": "jquery"
+      $: "@types/jquery",
+      jQuery: "@types/jquery",
+      "windows.jQuery": "@types/jquery"
     })]
   },
   chainWebpack: config => {
