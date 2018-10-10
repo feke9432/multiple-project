@@ -43,27 +43,6 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-// const inlineLimit = 4096
-
-// const genAssetSubPath = dir => {
-//   return getAssetPath(
-//     options,
-//     `${dir}/[name]${options.filenameHashing ? '.[hash:8]' : ''}.[ext]`
-//   )
-// }
-
-// const genUrlLoaderOptions = dir => {
-//   return {
-//     limit: inlineLimit,
-//     fallback: {
-//       loader: 'file-loader',
-//       options: {
-//         name: `${dir}/[name]${options.filenameHashing ? '.[hash:8]' : ''}.[ext]`
-//       }
-//     }
-//   }
-// }
-
 module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ?
     '/' : '/',
@@ -72,8 +51,8 @@ module.exports = {
   productionSourceMap: false,
   configureWebpack: {
     output: {
-      filename: 'asserts/[name]/js/[name].[contenthash:8].js',
-      chunkFilename: 'asserts/common/js/[name].[contenthash:8].js'
+      filename: 'asserts/[name]/js/[name].[hash:8].js',
+      chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
       $: "jquery",
@@ -101,8 +80,6 @@ module.exports = {
       .loader('url-loader')
       .tap(options => {
         // 修改它的选项...
-        // options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
-        // console.log(typeof options)
         options.fallback = {
           loader: 'file-loader',
           options: {
@@ -116,22 +93,14 @@ module.exports = {
       .use('file-loader')
       .loader('file-loader')
       .tap(options => {
-        // 修改它的选项...
-        // options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
-        // console.log(typeof options)
-        options.fallback = {
-          loader: 'file-loader',
-          options: {
-            name: 'asserts/common/fonts/[name].[hash:8].[ext]'
-          }
-        }
+        options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
         return options
       })
   },
   css: {
     extract: {
-      filename: 'asserts/[name]/css/[name].[contenthash:8].css',
-      chunkFilename: 'asserts/common/css/[name].[contenthash:8].css'
+      filename: 'asserts/[name]/css/[name].[hash:8].css',
+      chunkFilename: 'asserts/common/css/[name].[hash:8].css'
     }
   }
 }
