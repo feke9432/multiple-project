@@ -117,14 +117,7 @@ module.exports = {
       .loader('file-loader')
       .tap(options => {
         // 修改它的选项...
-        // options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
-        // console.log(typeof options)
-        options.fallback = {
-          loader: 'file-loader',
-          options: {
-            name: 'asserts/common/fonts/[name].[hash:8].[ext]'
-          }
-        }
+        options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
         return options
       })
   },
