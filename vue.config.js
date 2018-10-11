@@ -77,7 +77,6 @@ module.exports = {
     config
       .module
       .rule('fonts')
-      .test(/\.(woff2?|eot|ttf|otf)(\?.*)?$/i)
       .use('url-loader')
       .loader('url-loader')
       .tap(options => {
@@ -93,7 +92,6 @@ module.exports = {
     config
       .module
       .rule('svg')
-      .test(/\.(svg)(\?.*)?$/)
       .use('file-loader')
       .loader('file-loader')
       .tap(options => {
