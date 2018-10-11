@@ -1,8 +1,15 @@
-<div>
-  <img src="/asserts/common/img/logo.png">
-  <ul class="nav nav-pills" id="header">
-    <li role="home" class="active"><a href="/pages/index/">Home</a></li>
-    <li role="about"><a href="/pages/about/about.html">About</a></li>
-    <li role="login"><a href="/pages/login/login.html">Messages</a></li>
-  </ul>
+<div id="shortcut">
+  <div class="w">
+    <ul class="fl">
+      <li><a href="javascript:;">收藏买道</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;" class="active">请登录</a></li>
+      <li><a href="javascript:;" class="active">免费注册</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;">手机查价格</a></li>
+    </ul>
+    <ul class="fr">
+      
+    </ul>
+  </div>
 </div>

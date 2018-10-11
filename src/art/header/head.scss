@@ -1,0 +1,39 @@
+@import '$cssbase';
+
+#shortcut {
+  background: #e8e8e8;
+  font-size: 12px;
+  .w {
+    height: 31px;
+    line-height: 31px;
+    
+    ul {
+      margin: 0;
+    }
+
+    li {
+      float: left;
+      margin-right: 5px;
+
+      &.spacer {
+        overflow: hidden;
+        margin: 9px 5px;
+        width: 1px;
+        height: 13px;
+        background: #000000;
+      }
+    }
+
+    li+li {
+      margin-left: 5px;
+    }
+
+    a {
+      color: $mainTextColor;
+
+      &.active {
+        color: $activeColor;
+      }
+    }
+  }
+}

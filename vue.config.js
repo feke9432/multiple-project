@@ -74,6 +74,7 @@ module.exports = {
       .alias
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
+      .set('$cssbase', resolve('src/art/base.scss'))
     config
       .module
       .rule('fonts')
