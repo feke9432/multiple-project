@@ -55,9 +55,9 @@ module.exports = {
       chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
-      $: "@types/jquery",
-      jQuery: "@types/jquery",
-      "windows.jQuery": "@types/jquery"
+      $: "jquery",
+      jQuery: "jquery",
+      "windows.jQuery": "jquery"
     })]
   },
   chainWebpack: config => {
@@ -81,8 +81,7 @@ module.exports = {
       .use('url-loader')
       .loader('url-loader')
       .tap(options => {
-        // 修改它的选项... options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
-        // console.log(typeof options)
+        // 修改它的选项...
         options.fallback = {
           loader: 'file-loader',
           options: {
@@ -98,7 +97,6 @@ module.exports = {
       .use('file-loader')
       .loader('file-loader')
       .tap(options => {
-        // 修改它的选项...
         options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
         return options
       })

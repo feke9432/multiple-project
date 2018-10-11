@@ -9,11 +9,18 @@
 </head>
 
 <body>
-  <%= require('@/art/header/head.art')() %>
+  <%= require('$art/header/head.art')() %>
   <div class="content">
     <p>this is index page of content</p>
   </div>
   <div id="app"></div>
+  <button type="button" class="btn btn-default" aria-label="Left Align">
+    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+  </button>
+  
+  <button type="button" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+  </button>
   <%= require('$art/footer/foot.art')() %>
 </body>
 
