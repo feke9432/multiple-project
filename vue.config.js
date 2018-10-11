@@ -10,7 +10,7 @@ function getEntres() {
     pages = {}
   try {
     // 获取相关入口
-    entries = glob('src/pages/*/main.ts', {
+    entries = glob('src/pages/**/main.ts', {
       sync: true
     })
   } catch (err) {
@@ -19,21 +19,14 @@ function getEntres() {
   }
   // 格式化生成入口
   entries.forEach((file) => {
+    let pathObj = path.parse(file);
     const fileSplit = file.split('/')
-    const pageName = fileSplit[2]
-    let pageHtml = fileSplit
-      .slice(0, 3)
-      .join('/') + '/index.html'
-    if (!fs.existsSync(pageHtml)) {
-      // 入口如果不配置直接使用 _default.html
-      pageHtml = fileSplit
-        .slice(0, 2)
-        .join('/') + '/_default.html'
-    }
+    const len = fileSplit.length;
+    const pageName = fileSplit[len - 2]
     pages[pageName] = {
       entry: file,
-      template: pageHtml,
-      filename: `pages/${pageName}/${pageName}.html`
+      template: `${pathObj.dir}/index.html`,
+      filename: `${pathObj.dir}/index.html`
     }
   })
   return pages

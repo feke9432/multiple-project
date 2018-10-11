@@ -3,29 +3,64 @@
 #shortcut {
   background: #e8e8e8;
   font-size: 12px;
+
   .w {
     height: 31px;
     line-height: 31px;
-    
-    ul {
-      margin: 0;
-    }
 
     li {
       float: left;
-      margin-right: 5px;
+      padding-right: 5px;
+      padding-left: 5px;
+      position: relative;
 
       &.spacer {
         overflow: hidden;
         margin: 9px 5px;
+        padding: 0;
         width: 1px;
         height: 13px;
         background: #000000;
       }
-    }
 
-    li+li {
-      margin-left: 5px;
+      &.dropdown:hover {
+        border: $commonBorder;
+        background: #fff;
+        border-top: none;
+        padding-right: 4px;
+        padding-left: 4px;
+
+        .dropdown-menu {
+          display: block;
+          left: -1px;
+          top: 23px;
+          width: 100%;
+          min-width: 0;
+          border-radius: 1px;
+          background-color: #fff;
+          border: $commonBorder;
+          border-top: 0;
+          text-align: center;
+          z-index: 99999;
+          box-sizing: content-box;
+
+          li {
+            text-align: center;
+            width: 100%;
+
+            &:hover {
+              border: none;
+            }
+            a {
+              padding: 0;
+
+              &:hover {
+                background: none;
+              }
+            }
+          }
+        }
+      }
     }
 
     a {
@@ -34,6 +69,45 @@
       &.active {
         color: $activeColor;
       }
+
+      &:hover {
+        color: $activeColor;
+      }
     }
+
+    .iconfont {
+      margin-right: 6px;
+      top: 1px;
+      position: relative;
+
+      &.active {
+        color: $redColor;
+        font-size: 17px;
+      }
+
+      .badge {
+        background-color: #db0000;
+        transform: scale(0.7);
+        position: absolute;
+        right: -6px;
+        top: -4px;
+        padding: 3px 5px;
+      }
+    }
+
+    .iconfont.icon-arrow-down-sm {
+      margin-right: 0;
+      margin-left: 6px;
+    }
+  }
+}
+
+#header {
+  height: 202px;
+  position: relative;
+
+  .search-box {
+    padding-left: 314px;
+    border: 2px solid 
   }
 }

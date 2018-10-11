@@ -9,7 +9,50 @@
       <li><a href="javascript:;">手机查价格</a></li>
     </ul>
     <ul class="fr">
-      
+      <li class="dropdown active">
+        <a href="javascript:;" class="dropdown-toggle dropdown-hover" id="dropdownMenu2" data-toggle="dropdown">我的买道<i
+            class="iconfont icon-arrow-down-sm"></i></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><a href="/Score/" rel="nofollow">我的积分</a></li>
+          <li><a href="/Favorites/" rel="nofollow">我的收藏</a></li>
+        </ul>
+      </li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i class="iconfont icon-wodedingdan active"></i>查看订单</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i></i>查看询价</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i class="iconfont icon-sugouche"></i>现货车</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i class="iconfont icon-gouwuche"></i>购物车</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i class="iconfont icon-zhongyaotongzhi"><span class="badge">2</span></i>重要通知</a></li>
+      <li class="spacer"></li>
+      <li class="dropdown active">
+        <a href="javascript:;" class="dropdown-toggle dropdown-hover" id="dropdownMenu2" data-toggle="dropdown">我是供应商<i
+            class="iconfont icon-arrow-down-sm"></i></a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <li><a href="https://gf.51mydao.com" rel="nofollow">供应商登录</a></li>
+        </ul>
+      </li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;"><i class="iconfont icon-kefu active"></i>客服</a></li>
+      <li class="spacer"></li>
+      <li><a href="javascript:;">关于我们</a></li>
     </ul>
+  </div>
+</div>
+<div id="header">
+  <div class="w">
+    <div class="logo">
+      <a href="javascript:;"><img src="https://img.51mydao.com/image/201706/logo.jpg" alt="logo"></a>
+    </div>
+    <div class="search-box">
+      <div class="from">
+        <input type="text">
+        <button class="serch-btn">搜索</button>
+        <img src="/asserts/common/img/logo.png" alt="" srcset="">
+      </div>
+    </div>
   </div>
 </div>
