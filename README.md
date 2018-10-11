@@ -61,6 +61,6 @@ multiple-project
         ├─index
         │  ├─index.html // 模板文件
         │  ├─app.vue    // vue 项目文件
-        │  └─main.js    // 此页面文件入口
+        │  └─main.js      // 项目入口
         └─login
 ```
