@@ -4,13 +4,12 @@ const webpack = require('webpack')
 const path = require('path');
 
 const pages = getEntres()
-
 function getEntres() {
   let entries,
     pages = {}
   try {
     // 获取相关入口
-    entries = glob('src/pages/*/main.ts', {
+    entries = glob('src/pages/**/main.ts', {
       sync: true
     })
   } catch (err) {
@@ -19,21 +18,14 @@ function getEntres() {
   }
   // 格式化生成入口
   entries.forEach((file) => {
-    const fileSplit = file.split('/')
-    const pageName = fileSplit[2]
-    let pageHtml = fileSplit
-      .slice(0, 3)
-      .join('/') + '/index.html'
-    if (!fs.existsSync(pageHtml)) {
-      // 入口如果不配置直接使用 _default.html
-      pageHtml = fileSplit
-        .slice(0, 2)
-        .join('/') + '/_default.html'
-    }
+    let pathObj = path.parse(file);
+    let pageName = pathObj.dir.replace('src/pages/', '')
+    let htmlName = pathObj.dir.replace('src/', '')
+
     pages[pageName] = {
       entry: file,
-      template: pageHtml,
-      filename: `pages/${pageName}/${pageName}.html`
+      template: `${pathObj.dir}/index.html`,
+      filename: `${htmlName}/index.html`
     }
   })
   return pages
@@ -47,11 +39,15 @@ module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ?
     '/' : '/',
   pages,
-  assetsDir: 'asserts/[name]',
   productionSourceMap: false,
   configureWebpack: {
     output: {
-      filename: 'asserts/[name]/js/[name].[hash:8].js',
+      filename: (chunkData) => {
+        let name = chunkData.chunk.name;
+        let dirArr = name.split('/')
+        name = dirArr.length > 1 ? dirArr[dirArr.length - 1] : name
+        return `asserts/[name]/js/${name}.[hash:8].js`
+      },
       chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
@@ -74,10 +70,10 @@ module.exports = {
       .alias
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
+      .set('$cssbase', resolve('src/art/base.scss'))
     config
       .module
       .rule('fonts')
-      .test(/\.(woff2?|eot|ttf|otf)(\?.*)?$/i)
       .use('url-loader')
       .loader('url-loader')
       .tap(options => {
@@ -93,7 +89,6 @@ module.exports = {
     config
       .module
       .rule('svg')
-      .test(/\.(svg)(\?.*)?$/)
       .use('file-loader')
       .loader('file-loader')
       .tap(options => {
@@ -103,14 +98,34 @@ module.exports = {
     config
       .plugin('define')
       .tap(args => {
+        // 判断是否 生产环境 使用不同的接口路径
         args[0]['process.env'].BASE_URL = process.env.NODE_ENV === 'production' ?
           '"https://test-api-gateway.51mydao.com"' : '"https://test-api-gateway.51mydao.com"'
         return args
       })
+    // config.rule('css')
+    //   .use('extract-css-loader')
+    //   .loader(require('extract-text-webpack-plugin').loader)
+    //   .options({
+    //     publicPath: cssPublicPath
+    //   })
+      const svgRule = config.module.rule('css')
+
+      // 清除已有的所有 loader。
+      // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
+      svgRule.uses.clear()
+
+      // 添加要替换的 loader
+      svgRule
+        .use('extract-css-loader')
+        .loader('extract-text-webpack-plugin')
   },
   css: {
     extract: {
-      filename: 'asserts/[name]/css/[name].[hash:8].css',
+      filename: (path) => {
+        console.log(path)
+        return `asserts/[name]/css/[hash:8].css`
+      },
       chunkFilename: 'asserts/common/css/[name].[hash:8].css'
     }
   }

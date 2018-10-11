@@ -1,4 +1,3 @@
-declare var $ : any;
 import Cookies from 'js-cookie'
 
 /**

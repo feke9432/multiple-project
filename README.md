@@ -54,6 +54,12 @@ multiple-project
 │            └───img
 └─src   // 开发文件夹
     ├─art // art-template 模板
+    │  ├─header // 公共头相关文件
+    │  ├─footer // 公共脚相关文件
+    │  ├─iconfont // 我们自己的字体库
+    │  ├─base.scss // 基础 css 变量
+    │  ├─common.scss // 公共 css ，bootstrap 的样式覆盖也写在这里
+    │  └─common.ts  // 公共 js 入口，总的引入公共样式和 js
     ├─components // vue 公共组件
     └─pages // 多页目录
         ├─about
@@ -61,6 +67,6 @@ multiple-project
         ├─index
         │  ├─index.html // 模板文件
         │  ├─app.vue    // vue 项目文件
-        │  └─main.js    // 此页面文件入口
+        │  └─main.ts      // 项目入口
         └─login
 ```

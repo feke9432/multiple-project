@@ -1,0 +1,36 @@
+@import '$cssbase';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+  color: #666;
+}
+
+body,html, div, ul, li, a, span, label, img, i, b, strong {
+  margin: 0;
+  padding: 0;
+}
+
+ul,li {
+  list-style: none;
+}
+
+a,
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+.w {
+  width: 1190px;
+  margin: auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
