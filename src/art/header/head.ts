@@ -1,4 +1,3 @@
-/// <reference types="jquery" />.
 $(() => {
   let _locat = window.document.location || {
     href: ''
