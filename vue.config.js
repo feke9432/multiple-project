@@ -4,7 +4,6 @@ const webpack = require('webpack')
 const path = require('path');
 
 const pages = getEntres()
-
 function getEntres() {
   let entries,
     pages = {}
@@ -20,13 +19,13 @@ function getEntres() {
   // 格式化生成入口
   entries.forEach((file) => {
     let pathObj = path.parse(file);
-    const fileSplit = file.split('/')
-    const len = fileSplit.length;
-    const pageName = fileSplit[len - 2]
+    let pageName = pathObj.dir.replace('src/pages/', '')
+    let htmlName = pathObj.dir.replace('src/', '')
+
     pages[pageName] = {
       entry: file,
       template: `${pathObj.dir}/index.html`,
-      filename: `${pathObj.dir}/index.html`
+      filename: `${htmlName}/index.html`
     }
   })
   return pages
@@ -40,11 +39,15 @@ module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ?
     '/' : '/',
   pages,
-  assetsDir: 'asserts/[name]',
   productionSourceMap: false,
   configureWebpack: {
     output: {
-      filename: 'asserts/[name]/js/[name].[hash:8].js',
+      filename: (chunkData) => {
+        let name = chunkData.chunk.name;
+        let dirArr = name.split('/')
+        name = dirArr.length > 1 ? dirArr[dirArr.length - 1] : name
+        return `asserts/[name]/js/${name}.[hash:8].js`
+      },
       chunkFilename: 'asserts/common/js/[name].[hash:8].js'
     },
     plugins: [new webpack.ProvidePlugin({
@@ -95,6 +98,7 @@ module.exports = {
     config
       .plugin('define')
       .tap(args => {
+        // 判断是否 生产环境 使用不同的接口路径
         args[0]['process.env'].BASE_URL = process.env.NODE_ENV === 'production' ?
           '"https://test-api-gateway.51mydao.com"' : '"https://test-api-gateway.51mydao.com"'
         return args
@@ -102,7 +106,7 @@ module.exports = {
   },
   css: {
     extract: {
-      filename: 'asserts/[name]/css/[name].[hash:8].css',
+      filename: `asserts/[name]/css/[hash:8].css`,
       chunkFilename: 'asserts/common/css/[name].[hash:8].css'
     }
   }
