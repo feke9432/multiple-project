@@ -10,7 +10,7 @@
     </ul>
     <ul class="fr">
       <li class="dropdown active">
-        <a href="javascript:;" class="dropdown-toggle dropdown-hover" id="dropdownMenu2" data-toggle="dropdown">我的买道<i
+        <a href="javascript:;" class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">我的买道<i
             class="iconfont icon-arrow-down-sm"></i></a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <li><a href="/Score/" rel="nofollow">我的积分</a></li>
@@ -29,7 +29,7 @@
       <li><a href="javascript:;"><i class="iconfont icon-zhongyaotongzhi"><span class="badge">2</span></i>重要通知</a></li>
       <li class="spacer"></li>
       <li class="dropdown active">
-        <a href="javascript:;" class="dropdown-toggle dropdown-hover" id="dropdownMenu2" data-toggle="dropdown">我是供应商<i
+        <a href="javascript:;" class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown">我是供应商<i
             class="iconfont icon-arrow-down-sm"></i></a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <li><a href="https://gf.51mydao.com" rel="nofollow">供应商登录</a></li>
@@ -97,12 +97,12 @@
         </li>
       </ul>
     </div>
-    <div class="nav-item clearfix">
+    <div class="nav-item clearfix fl">
       <div class="cate-box dropdown">
         <div class="cate-box-header ">
-          <a class="dropdown-toggle dropdown-hover" href="/Product/ReadyStock" id="dropDownCate" data-toggle="dropdown">所有商品分类</a>
+          <a class="dropdown-toggle" href="/Product/ReadyStock" id="dropDownCate" data-toggle="dropdown">所有商品分类</a>
         </div>
-        <ul class="dropdown-menu" aria-labelledby="dropDownCate">
+        <ul class="dropdown-menu" aria-labelledby="dropDownCate" style="display: block;">
           <li data-fcode="8000"><a href="javascript:;" rel="nofollow">开关传感器<i class="icon-youjiantou iconfont"></i></a></li>
           <li data-fcode="8028"><a href="javascript:;" rel="nofollow">测量传感器<i class="icon-youjiantou iconfont"></i></a></li>
           <li data-fcode="8062"><a href="javascript:;" rel="nofollow">运动控制传感器<i class="icon-youjiantou iconfont"></i></a></li>

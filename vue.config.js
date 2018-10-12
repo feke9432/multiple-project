@@ -120,6 +120,6 @@ module.exports = {
   },
   devServer: {
     open: true,
-    index: 'index/index.html'
+    openPage: 'index'
   }
 }

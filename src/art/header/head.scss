@@ -104,6 +104,8 @@
 #header {
   height: 202px;
   position: relative;
+  border-bottom: 2px solid $activeColor;
+
 
   .logo {
     position: absolute;
@@ -114,6 +116,7 @@
   .search-box {
     height: 160px;
     position: relative;
+
     .search-from {
       position: relative;
       border: 2px solid $redColor;
@@ -141,6 +144,7 @@
         text-decoration: none;
       }
     }
+
     .hot-words {
       position: absolute;
       top: 100px;
@@ -158,6 +162,7 @@
     position: absolute;
     top: 48px;
     right: 0;
+
     ul {
       overflow: hidden;
     }
@@ -197,10 +202,17 @@
   }
 
   .nav-item {
-    height: 43px;
+    height: 40px;
+    padding-top: 2px;
 
     .cate-box {
       width: 204px;
+
+      &:hover {
+        .dropdown-menu {
+          display: block;
+        }
+      }
 
       a {
         color: #fff;
@@ -208,18 +220,38 @@
 
       .cate-box-header {
         width: 100%;
-        background: $contentTextColor;
+        background: $activeColor;
+        padding-left: 8px;
+        line-height: 38px;
 
         a {
           width: 100%;
           height: 38px;
           line-height: 38px;
           font-size: 16px;
+          display: block;
         }
       }
 
       .dropdown-menu {
         background: $redColor;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+
+        i {
+          float: right;
+        }
+
+        a {
+          font-size: 13px;
+
+          &:hover {
+            color: $activeColor;
+          }
+        }
       }
     }
   }
