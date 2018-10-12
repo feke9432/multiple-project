@@ -45,14 +45,50 @@
 <div id="header">
   <div class="w">
     <div class="logo">
-      <a href="javascript:;"><img src="https://img.51mydao.com/image/201706/logo.jpg" alt="logo"></a>
+      <a href="/"><img src="https://img.51mydao.com/image/201706/logo.jpg" alt="logo"></a>
     </div>
     <div class="search-box">
-      <div class="from">
-        <input type="text">
-        <button class="serch-btn">搜索</button>
-        <img src="/asserts/common/img/logo.png" alt="" srcset="">
-      </div>
+      <form class="search-from" action="/Product/Search" method="GET">
+        <input type="text" placeholder="请输入型号或关键字 查询产品价格">
+        <a class="search-btn fr">搜索</a>
+      </form>
+    </div>
+    <div class="headerIcons fr">
+      <ul>
+        <li>
+          <a href="/Services/SecureShopping " title="正品保障" rel="nofollow">
+            <div>
+              <i class="iconfont icon-zhengpinbaozhang svg-i"></i>
+              <p class="text-news">正品保障</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/Services/Intro/#tech_service" title="技术支持" rel="nofollow">
+            <div>
+              <i class="iconfont icon-jishuzhichi svg-i"></i>
+              <p class="text-news">技术支持</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/Services/RefundsOrExchanges" title="售后保障" rel="nofollow">
+            <div>
+              <i class="iconfont icon-shouhoubaozhang svg-i"></i>
+              <p class="text-news">售后保障</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/Services/Carriage" title="顺丰包邮" rel="nofollow">
+            <div style="margin-top: 4px;">
+              <div class="gopng_1_outer"></div>
+              <p class="text-news">顺丰包邮</p>
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
+</div>
 </div>

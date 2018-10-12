@@ -51,6 +51,7 @@
             &:hover {
               border: none;
             }
+
             a {
               padding: 0;
 
@@ -106,8 +107,78 @@
   height: 202px;
   position: relative;
 
+  .logo {
+    position: absolute;
+    top: 38px;
+    left: 0;
+  }
+
   .search-box {
-    padding-left: 314px;
-    border: 2px solid 
+    .search-from {
+      position: relative;
+      border: 2px solid $redColor;
+      top: 55px;
+      margin-left: 314px;
+      width: 512px;
+
+      input {
+        border: none;
+        width: 416px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 24px;
+        outline: none;
+      }
+
+      .search-btn {
+        line-height: 32px;
+        padding: 0 30px;
+        background: $activeColor;
+        display: block;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .headerIcons {
+    ul {
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+      padding-left: 20px;
+      text-align: center;
+
+      a {
+        color: $mainTextColor;
+        font-size: 0;
+
+        &:hover {
+          color: $activeColor;
+        }
+      }
+
+      i {
+        font-size: 38px;
+        color: $activeColor;
+        line-height: 38px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .gopng_1_outer {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: url(https://img.51mydao.com/sprite_01.png) -112px -0px no-repeat;
+      }
+    }
   }
 }

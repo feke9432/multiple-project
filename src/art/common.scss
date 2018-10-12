@@ -7,7 +7,7 @@ body {
   color: #666;
 }
 
-body,html, div, ul, li, a, span, label, img, i, b, strong {
+body,html, div, ul, li, a, span, label, img, i, b, p, strong {
   margin: 0;
   padding: 0;
 }
@@ -24,6 +24,7 @@ a:-webkit-any-link {
 .w {
   width: 1190px;
   margin: auto;
+  position: relative;
 }
 
 .fl {

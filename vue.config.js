@@ -41,6 +41,7 @@ module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ?
     '/' : '/',
   pages,
+  assetsDir: '/',
   productionSourceMap: false,
   configureWebpack: {
     output: {
