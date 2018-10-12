@@ -19,10 +19,12 @@ function getEntres() {
   // 格式化生成入口
   entries.forEach((file) => {
     let pathObj = path.parse(file);
-    let pageName = pathObj.dir.replace('src/pages/', '')
-    let htmlName = pathObj.dir.replace('src/', '')
+    let entryName = pathObj.dir.replace('src/pages/', '')
+    let htmlExR = process.env.NODE_ENV === 'production' ?
+      'src/': 'src/pages/'
+    let htmlName = pathObj.dir.replace(htmlExR, '')
 
-    pages[pageName] = {
+    pages[entryName] = {
       entry: file,
       template: `${pathObj.dir}/index.html`,
       filename: `${htmlName}/index.html`
@@ -103,29 +105,10 @@ module.exports = {
           '"https://test-api-gateway.51mydao.com"' : '"https://test-api-gateway.51mydao.com"'
         return args
       })
-    // config.rule('css')
-    //   .use('extract-css-loader')
-    //   .loader(require('extract-text-webpack-plugin').loader)
-    //   .options({
-    //     publicPath: cssPublicPath
-    //   })
-      const svgRule = config.module.rule('css')
-
-      // 清除已有的所有 loader。
-      // 如果你不这样做，接下来的 loader 会附加在该规则现有的 loader 之后。
-      svgRule.uses.clear()
-
-      // 添加要替换的 loader
-      svgRule
-        .use('extract-css-loader')
-        .loader('extract-text-webpack-plugin')
   },
   css: {
     extract: {
-      filename: (path) => {
-        console.log(path)
-        return `asserts/[name]/css/[hash:8].css`
-      },
+      filename: `asserts/[name]/css/[hash:8].css`,
       chunkFilename: 'asserts/common/css/[name].[hash:8].css'
     }
   }
