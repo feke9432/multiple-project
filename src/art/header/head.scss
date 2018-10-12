@@ -1,5 +1,3 @@
-@import '$cssbase';
-
 #shortcut {
   background: #e8e8e8;
   font-size: 12px;
@@ -114,6 +112,8 @@
   }
 
   .search-box {
+    height: 160px;
+    position: relative;
     .search-from {
       position: relative;
       border: 2px solid $redColor;
@@ -141,9 +141,23 @@
         text-decoration: none;
       }
     }
+    .hot-words {
+      position: absolute;
+      top: 100px;
+      left: 316px;
+
+      a {
+        padding: 4px;
+        line-height: 13px;
+        color: $contentTextColor;
+      }
+    }
   }
 
-  .headerIcons {
+  .header-icons {
+    position: absolute;
+    top: 48px;
+    right: 0;
     ul {
       overflow: hidden;
     }
@@ -178,6 +192,34 @@
         width: 36px;
         height: 36px;
         background: url(https://img.51mydao.com/sprite_01.png) -112px -0px no-repeat;
+      }
+    }
+  }
+
+  .nav-item {
+    height: 43px;
+
+    .cate-box {
+      width: 204px;
+
+      a {
+        color: #fff;
+      }
+
+      .cate-box-header {
+        width: 100%;
+        background: $contentTextColor;
+
+        a {
+          width: 100%;
+          height: 38px;
+          line-height: 38px;
+          font-size: 16px;
+        }
+      }
+
+      .dropdown-menu {
+        background: $redColor;
       }
     }
   }

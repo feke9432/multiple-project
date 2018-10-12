@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path = require('path');
 
 const pages = getEntres()
+
 function getEntres() {
   let entries,
     pages = {}
@@ -21,7 +22,7 @@ function getEntres() {
     let pathObj = path.parse(file);
     let entryName = pathObj.dir.replace('src/pages/', '')
     let htmlExR = process.env.NODE_ENV === 'production' ?
-      'src/': 'src/pages/'
+      'src/' : 'src/pages/'
     let htmlName = pathObj.dir.replace(htmlExR, '')
 
     pages[entryName] = {
@@ -73,7 +74,6 @@ module.exports = {
       .alias
       .set('$art', resolve('src/art'))
       .set('$common', resolve('src/art/common'))
-      .set('$cssbase', resolve('src/art/base.scss'))
     config
       .module
       .rule('fonts')
@@ -111,6 +111,15 @@ module.exports = {
     extract: {
       filename: `asserts/[name]/css/[hash:8].css`,
       chunkFilename: 'asserts/common/css/[name].[hash:8].css'
+    },
+    loaderOptions: {
+      sass: {
+        data: `@import "src/art/base.scss";`
+      }
     }
+  },
+  devServer: {
+    open: true,
+    index: 'index/index.html'
   }
 }

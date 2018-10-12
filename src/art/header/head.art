@@ -52,8 +52,16 @@
         <input type="text" placeholder="请输入型号或关键字 查询产品价格">
         <a class="search-btn fr">搜索</a>
       </form>
+      <div class="hot-words">
+        <a href="javascript:;" class="spec-hot-words">e2b</a>
+        <a href="javascript:;" class="spec-hot-words">欧姆龙</a>
+        <a href="javascript:;" class="spec-hot-words">欧姆龙</a>
+        <a href="javascript:;" class="spec-hot-words">欧姆龙</a>
+        <a href="javascript:;" class="spec-hot-words">欧姆龙</a>
+        <a href="javascript:;" class="spec-hot-words">欧姆龙</a>
+      </div>
     </div>
-    <div class="headerIcons fr">
+    <div class="header-icons fr">
       <ul>
         <li>
           <a href="/Services/SecureShopping " title="正品保障" rel="nofollow">
@@ -88,6 +96,23 @@
           </a>
         </li>
       </ul>
+    </div>
+    <div class="nav-item clearfix">
+      <div class="cate-box dropdown">
+        <div class="cate-box-header ">
+          <a class="dropdown-toggle dropdown-hover" href="/Product/ReadyStock" id="dropDownCate" data-toggle="dropdown">所有商品分类</a>
+        </div>
+        <ul class="dropdown-menu" aria-labelledby="dropDownCate">
+          <li data-fcode="8000"><a href="javascript:;" rel="nofollow">开关传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8028"><a href="javascript:;" rel="nofollow">测量传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8062"><a href="javascript:;" rel="nofollow">运动控制传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8092"><a href="javascript:;" rel="nofollow">过程控制传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8079"><a href="javascript:;" rel="nofollow">视觉传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8064"><a href="javascript:;" rel="nofollow">安全传感器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8046"><a href="javascript:;" rel="nofollow">继电器<i class="icon-youjiantou iconfont"></i></a></li>
+          <li data-fcode="8012"><a href="javascript:;" rel="nofollow">其他<i class="icon-youjiantou iconfont"></i></a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
