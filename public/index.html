@@ -9,13 +9,8 @@
 </head>
 
 <body>
-  <%= require('$art/header/head.art')() %>
-  <div class="content">
-    <p>this is index page of content<a style="font-size: 20px" href="/about?two">two</a></p>
-  </div>
-  <a style="font-size: 20px" href="/about?/two">two</a>
+  <%= require('$art/header/head.art')({a: routerOp}) %>
   <div id="app"></div>
-  
   <%= require('$art/footer/foot.art')() %>
 </body>
 

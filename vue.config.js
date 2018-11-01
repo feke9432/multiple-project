@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path = require('path');
 
 const pages = getEntres()
+
 function getEntres() {
   let entries,
     pages = {}
@@ -19,10 +20,12 @@ function getEntres() {
   // 格式化生成入口
   entries.forEach((file) => {
     let pathObj = path.parse(file);
-    let pageName = pathObj.dir.replace('src/pages/', '')
-    let htmlName = pathObj.dir.replace('src/', '')
+    let entryName = pathObj.dir.replace('src/pages/', '')
+    let htmlExR = process.env.NODE_ENV === 'production' ?
+      'src/' : 'src/pages/'
+    let htmlName = pathObj.dir.replace(htmlExR, '')
 
-    pages[pageName] = {
+    pages[entryName] = {
       entry: file,
       template: `${pathObj.dir}/index.html`,
       filename: `${htmlName}/index.html`
@@ -39,6 +42,7 @@ module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ?
     '/' : '/',
   pages,
+  assetsDir: '/',
   productionSourceMap: false,
   configureWebpack: {
     output: {
@@ -53,7 +57,8 @@ module.exports = {
     plugins: [new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      "windows.jQuery": "jquery"
+      "windows.jQuery": "jquery",
+      layer: 'layui-layer'
     })]
   },
   chainWebpack: config => {
@@ -69,8 +74,7 @@ module.exports = {
       .resolve
       .alias
       .set('$art', resolve('src/art'))
-      .set('$common', resolve('src/art/common'))
-      .set('$cssbase', resolve('src/art/base.scss'))
+      .set('$common', resolve('src/art/common.ts'))
     config
       .module
       .rule('fonts')
@@ -86,6 +90,7 @@ module.exports = {
         }
         return options
       })
+
     config
       .module
       .rule('svg')
@@ -95,12 +100,19 @@ module.exports = {
         options.name = 'asserts/common/fonts/[name].[hash:8].[ext]'
         return options
       })
+    config.module.rule('images').use('url-loader')
+      .loader('url-loader').tap(options => {
+        let imgPath = process.env.NODE_ENV === 'production' ? 'asserts/common/img/[name].[hash:8].[ext]' : 'common/img/[name].[ext]'
+        options.fallback.options.name = imgPath
+        return options
+      })
     config
       .plugin('define')
       .tap(args => {
         // 判断是否 生产环境 使用不同的接口路径
         args[0]['process.env'].BASE_URL = process.env.NODE_ENV === 'production' ?
           '"https://test-api-gateway.51mydao.com"' : '"https://test-api-gateway.51mydao.com"'
+
         return args
       })
   },
@@ -108,6 +120,15 @@ module.exports = {
     extract: {
       filename: `asserts/[name]/css/[hash:8].css`,
       chunkFilename: 'asserts/common/css/[name].[hash:8].css'
+    },
+    loaderOptions: {
+      sass: {
+        data: `@import "src/assets/scss/base.scss";`
+      }
     }
+  },
+  devServer: {
+    open: true,
+    openPage: 'index'
   }
 }

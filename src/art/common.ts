@@ -6,3 +6,5 @@ import './common.scss'
 import './header/head'
 import './header/head.scss'
 import './footer/foot'
+
+import '../util/urlChange'

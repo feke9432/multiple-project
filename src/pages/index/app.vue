@@ -2,6 +2,7 @@
   <div class="app">
     <h1 class="t-1">主页</h1>
     <p>{{ message }}</p>
+    <a style="font-size: 20px" href="/about?two">two</a>
   </div>
 </template>
 
@@ -15,20 +16,9 @@ export default {
       message: 'this is index page message'
     }
   },
+  
   created() {
-    let reqMsg = {
-      password: "11111111",
-      userName: "root"
-    }
-    $agent.Api('Auth', '/Account/LogOnForCRMUser', reqMsg, (resp) => {
-      if (resp.IsSuccess) {
-        Cookies.set($agent.sidKey, resp.Body.Token)
-        let info = JSON.stringify(resp.Body.Data);
-        Cookies.set($agent.userKey, info)
-      } else {
-        alert(resp.Message)
-      }
-    })
+    
   }
 }
 </script>
